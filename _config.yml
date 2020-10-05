@@ -602,9 +602,9 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
             - | # 需要配置的变量见<https://merger.justhx.com/cn/docs/configure>
               <script>
                 var usage = "payment";
-                var wechat = "";
-                var tenpay = "";
-                var alipay = "";
+                var wechat = "wxp://f2f05IN9nAC64oHaoBLOGoRT5zO0LNa-dhdP";
+                var tenpay = "https://i.qianbao.qq.com/wallet/sqrcode.htm?m=tenpay&f=wallet&a=1&ac=CAEQqMH23gMYjaPq-wU%3D_xxx_sign&u=1004380328&n=%E5%BC%8F%E5%AD%90";
+                var alipay = "https://qr.alipay.com/fkx06703xovnrlhe7kjk4af";
                 var myname = "Lajizz";
                 var profile = "https://lajizz.github.io/assets/image/aaa.png";
                 var multilingual = true;
