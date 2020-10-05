@@ -8,7 +8,7 @@ tags: Algorithms
 是维护一个栈。而结束的条件就是当成功找到或者栈为空（及寻找失败）。
 * 回溯法是经典的算法，之前学习的时候一直不太懂，这次正好借一道题来再学习一下。
 
-### 题目描述
+### 题目一描述
 * 请设计一个函数，用来判断在一个矩阵中是否**存在**一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一格开始，每一步可以在矩阵中向**左、右、上、下**移动一格。如果一条路径经过了矩阵的某一格，那么该路径**不能再次进入**该格子。例如，在下面的3×4的矩阵中包含一条字符串“bfce”的路径（路径中的字母用加粗标出）。
 > [["a","b","c","e"],
 > ["s","f","c","s"],
@@ -83,5 +83,70 @@ bool hasPath(char *matrix,int rows, int cols,int row, int col,const char* str,in
     }
 
     return hasPath;
+}
+```
+
+### 题目二描述
+* 地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和**大于k**的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3+5+3+7=18。但它不能进入方格 [35, 38]，因为3+5+3+8=19。请问该机器人能够到达多少个格子？
+
+ 
+
+> 示例 1：
+
+> 输入：m = 2, n = 3, k = 1
+> 输出：3
+> 示例 2：
+
+> 输入：m = 3, n = 1, k = 0
+> 输出：1
+> 提示：
+
+> 1 <= n,m <= 100
+> 0 <= k <= 20
+### 代码
+```cpp
+int count(int threshold,int rows,int cols)
+{
+    if(threshold<0||rows<0||cols<0)
+    return 0;
+    bool visited[rows*cols];
+    memset(visited,0,rows*cols);
+    int count = 0;
+    count=countCore(threhold,rows,cols,row,col,visited);
+    return count;
+}
+
+int countCore(int threhold,int rows,int cols,int row,int col,bool *visited){
+        int count = 0;
+        
+        if(check(threhold,rows,cols,row,col,visited)){
+            visited[row*cols+col] = true;
+            count = 1 + countCore(threhold,rows,cols,row+1,col,visited)
+                        countCore(threhold,rows,cols,row-1,col,visited)
+                        countCore(threhold,rows,cols,row,col+1,visited)
+                        countCore(threhold,rows,cols,row,col-1,visited);
+        }
+        return count;
+    
+}
+
+bool check(int threhold,int rows,int cols,int row,int col,bool *visited){
+    if(threhold>=0&&cols>=0&&rows>=0&&row>=0&&col>=0&&row<rows&&col<cols)
+    {
+        if(digital(row)+digital(col)<=threhold&&!visited[row*cols+col])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int digital(int num){
+    int n=0;
+    while(num>0){
+        n+=num%10;
+        num/=10
+    }
+    return n;
 }
 ```
