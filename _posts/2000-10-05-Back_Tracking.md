@@ -96,13 +96,13 @@ bool hasPath(char *matrix,int rows, int cols,int row, int col,const char* str,in
 > 输入：m = 2, n = 3, k = 1
 > 输出：3
 > 示例 2：
-
 > 输入：m = 3, n = 1, k = 0
 > 输出：1
 > 提示：
-
 > 1 <= n,m <= 100
 > 0 <= k <= 20
+
+
 ### 代码
 ```cpp
 int count(int threshold,int rows,int cols)
