@@ -27,6 +27,7 @@ tags: ComputerNetwork
 
 ### rdt1.0
 * 信道完全可靠
+
 ### rdt2.0
 * 具有比特差错信道
 * 增加了ASK、NAK与差错检测,重传
