@@ -48,7 +48,7 @@ tags: 编码
 * 汉明码属于线性分组码
 * channal:生成矩阵为G
  * $\overrightarrow Vrec=\overrightarrow{V_S}\ast\overrightarrow G$
- * $\overrightarrow G\;=\;\begin{bmatrix}1&0&0&0&1&1&0 0&1&0&0&1&1&1 0&0&1&0&1&0&1 0&0&0&1&0&1&1\end{bmatrix}$
+ * $\overrightarrow G\;=\;\begin{bmatrix}1&0&0&0&1&1&0\\\0&1&0&0&1&1&1\\\0&0&1&0&1&0&1\\\0&0&0&1&0&1&1\end{bmatrix}$
 
 ### 汉明码的最大后验（MaxP)
 * 设 0000-1111是16个概率相等的message, p(Ci) = 1/16 (非常重要)
