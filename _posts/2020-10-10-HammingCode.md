@@ -47,13 +47,13 @@ tags: 编码
 ### 从信道编码看汉明码
 * 汉明码属于线性分组码
 * channal:生成矩阵为G
- * $\overrightarrow Vrec=\overrightarrow{V_S}\ast\overrightarrow G\\$
- * $\overrightarrow G\;=\;\begin{bmatrix}1&0&0&0&1&1&0\\0&1&0&0&1&1&1\\0&0&1&0&1&0&1\\0&0&0&1&0&1&1\end{bmatrix}\\$
+ * $\overrightarrow Vrec=\overrightarrow{V_S}\ast\overrightarrow G$
+ * $\overrightarrow G\;=\;\begin{bmatrix}1&0&0&0&1&1&0\\0&1&0&0&1&1&1\\0&0&1&0&1&0&1\\0&0&0&1&0&1&1\end{bmatrix}$
 
 ### 汉明码的最大后验（MaxP)
 * 设 0000-1111是16个概率相等的message, p(Ci) = 1/16 (非常重要)
 * 采用最大似然法，通过得到的出错信息 C',找出与在C'发生的概率下最大概率的Ci
-* &\\P(Ci,C')=P(C'\vert C_i)P(C_i)\\P(C')\;=\underset{}{\sum P(C'\vert C_i)P(C_i)\;}\\P(C_i\vert C')\;=\;\frac{P(Ci,C')}{P(C')}\;\;=\;\frac{P(C'\vert C_i)P(C_i)}{\sum P(C'\vert C_i)P(C_i)\;}=\frac{P(C'\vert C_i)}{\sum P(C'\vert C_i)}\\\\&
+* &P(Ci,C')=P(C'\vert C_i)P(C_i)\\P(C')\;=\underset{}{\sum P(C'\vert C_i)P(C_i)\;}\\P(C_i\vert C')\;=\;\frac{P(Ci,C')}{P(C')}\;\;=\;\frac{P(C'\vert C_i)P(C_i)}{\sum P(C'\vert C_i)P(C_i)\;}=\frac{P(C'\vert C_i)}{\sum P(C'\vert C_i)}&
 * 从上式可以看出 当Ci与C'最相近的时候，它的概率最大，我们译码就译成Ci,那这里最近很容易知道就是Ci与C的汉明距离最小
 
 
