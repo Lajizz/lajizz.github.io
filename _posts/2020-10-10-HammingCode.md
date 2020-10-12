@@ -58,7 +58,7 @@ tags: 编码
 * $P(C_i\vert C')\;=\;\frac{P(Ci,C')}{P(C')}\;\;=\;\frac{P(C'\vert C_i)P(C_i)}{\sum P(C'\vert C_i)P(C_i)\;}=\frac{P(C'\vert C_i)}{\sum P(C'\vert C_i)}$
 * 从上式可以看出 当Ci与C'最相近的时候，它的概率最大，我们译码就译成Ci,那这里最近很容易知道就是Ci与C的汉明距离最小
 ### 汉明码的纠错能力的理解
-* 最小码距<=|d/2|
+* 最小码距<=abs(d/2)
 * $d=\underset{i\neq j}{min}\vert Ci\oplus Cj\vert$
 ### 汉明码的校验矩阵H
 * H 大小 (n-k)*n 
@@ -76,9 +76,9 @@ tags: 编码
 ### 完备码：汉明码是一个完备码
 * 完备码的条件：$\sum_{i=0}^r\begin{pmatrix}n\\\i\end{pmatrix}=2^{n-k}$
 * 若$\sum_{i=0}^r\begin{pmatrix}n\\\i\end{pmatrix}>2^{n-k}$
- * 说明有两个位数不超过r位的错对应一个syndrome
+  * 说明有两个位数不超过r位的错对应一个syndrome
 * 若$\sum_{i=0}^r\begin{pmatrix}n\\\i\end{pmatrix}<2^{n-k}$
- * 有能力纠更多的错
+  * 有能力纠更多的错
 
 
 
