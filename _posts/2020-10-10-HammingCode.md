@@ -46,7 +46,7 @@ tags: 编码
 
 ### 从信道编码看汉明码
 * 汉明码属于线性分组码
-* channal:生成矩阵为G
+* channal:生成矩阵为G k*n
  * $\overrightarrow Vrec=\overrightarrow{V_S}\ast\overrightarrow G$
  * $\overrightarrow G\;=\;\begin{bmatrix}1&0&0&0&1&1&0\\\0&1&0&0&1&1&1\\\0&0&1&0&1&0&1\\\0&0&0&1&0&1&1\end{bmatrix}$
 
@@ -57,6 +57,28 @@ tags: 编码
 * $P(C')\;=\underset{}{\sum P(C'\vert C_i)P(C_i)\;}$
 * $P(C_i\vert C')\;=\;\frac{P(Ci,C')}{P(C')}\;\;=\;\frac{P(C'\vert C_i)P(C_i)}{\sum P(C'\vert C_i)P(C_i)\;}=\frac{P(C'\vert C_i)}{\sum P(C'\vert C_i)}$
 * 从上式可以看出 当Ci与C'最相近的时候，它的概率最大，我们译码就译成Ci,那这里最近很容易知道就是Ci与C的汉明距离最小
+### 汉明码的纠错能力的理解
+* 最小码距<=|d/2|
+* $d=\underset{i\neq j}{min}\vert Ci\oplus Cj\vert$
+### 汉明码的校验矩阵H
+* H 大小 (n-k)*n 
+* 要求$G\ast H^T=\overset\rightharpoonup0$
+* 上述(7,4)汉明码的校验矩阵为
+* $H=\begin{bmatrix}0&0&0&1&1&1&1\\\0&1&1&0&0&1&1\\\1&0&1&0&1&0&1\end{bmatrix}$ 
+  * 可以看出H的每一列是一个二进制的数
+* 最终要求检验出来的信息 $x\ast H^T = cG\ast H^T = =\overset\rightharpoonup0$
+### 真实的译码
+* $c'=c\oplus e$
+* $c'H^T=(c\oplus e)H^T=eH^T$
+* 在(7,4)汉明码 可以计算出$eH^T$是1*3的矩阵，共有8种输出，称为8种syndrome
+* 每一个syndrome会有对应的很多个e组成它的陪集{ej1,ej2,...,ejr}按照概率从大到小的排列所以说当c'发生就认为就会按照ej1这种错进行纠错。
+
+### 完备码：汉明码是一个完备码
+* 完备码的条件：$\sum_{i=0}^r\begin{pmatrix}n\\\i\end{pmatrix}=2^{n-k}$
+* 若$\sum_{i=0}^r\begin{pmatrix}n\\\i\end{pmatrix}>2^{n-k}$
+ * 说明有两个位数不超过r位的错对应一个syndrome
+* 若$\sum_{i=0}^r\begin{pmatrix}n\\\i\end{pmatrix}<2^{n-k}$
+ * 有能力纠更多的错
 
 
 
